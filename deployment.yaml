@@ -3,36 +3,36 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: flaskdemo1
-  name: flaskdemo1
+    app: flaskdemo
+  name: flaskdemo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: flaskdemo1
+      app: flaskdemo
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: flaskdemo1
+        app: flaskdemo
     spec:
       containers:
       - image: rajesh7620/jenkinsproject:4
-        name: flaskdemo1
+        name: flaskdemo
         resources: {}
 status: {}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-service1
+  name: lb-service
   labels:
-    app: lb-service1
+    app: lb-service
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     targetPort: 5000
   selector:
-    app: flaskdemo1
+    app: flaskdemo
